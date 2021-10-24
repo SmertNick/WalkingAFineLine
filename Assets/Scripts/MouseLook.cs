@@ -1,27 +1,43 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class MouseLook : MonoBehaviour
 {
     [SerializeField] private MouseSettings mouseSettings;
-    [SerializeField] private Transform playerBody;
-    
-    private float pitch = 0f; 
+
+    private Transform bodyTransform, headTransform;
+
+    private Vector2 pitchYaw;
+    private float pitch;
+    private float yaw;
     
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        
+        bodyTransform = GetComponent<Transform>();
+        headTransform = GetComponentInChildren<Camera>().transform;
+        pitchYaw = Vector2.zero;
     }
 
     void LateUpdate()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSettings.MouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSettings.MouseSensitivity * Time.deltaTime;
+        pitchYaw = GetInput() * mouseSettings.MouseSensitivity * Time.deltaTime;
+    
+        yaw = pitchYaw.x;
 
-        pitch -= mouseY;
+        pitch -= pitchYaw.y;
         pitch = Mathf.Clamp(pitch, -mouseSettings.MaxPitchAngle, mouseSettings.MaxPitchAngle);
 
-        transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
-        playerBody.Rotate(Vector3.up, mouseX);
+        headTransform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+        bodyTransform.Rotate(Vector3.up, yaw);
+    }
+
+    private Vector2 GetInput()
+    {
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        return new Vector2(mouseX, mouseY);
     }
 }
