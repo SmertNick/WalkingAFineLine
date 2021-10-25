@@ -37,7 +37,7 @@ public class Pool : MonoBehaviour, IBulletProvider, IParticlesProvider
         // Search pool for first inactive object
         foreach (GameObject obj in bullets)
         {
-            if (obj.activeInHierarchy)
+            if (!obj.activeInHierarchy)
             {
                 return obj;
             }
@@ -55,7 +55,7 @@ public class Pool : MonoBehaviour, IBulletProvider, IParticlesProvider
         // Search pool for first inactive object
         foreach (GameObject obj in bullets)
         {
-            if (obj.activeInHierarchy)
+            if (!obj.activeInHierarchy)
             {
                 return obj;
             }
