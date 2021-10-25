@@ -3,7 +3,10 @@ guid: 2a56cf54a2066da42b872478abea3257
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - keyBindings: {fileID: 11400000, guid: 4df44d7f15a2b8e40b197faa6d6c0404, type: 2}
+  - mouseSettings: {fileID: 11400000, guid: 1682d8db737270e4c872dfd9849c62ee, type: 2}
+  - objecPool: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7932547256508704264}
   - component: {fileID: 9020258647892821220}
   - component: {fileID: 2044162858737320412}
+  - component: {fileID: 1410716885757777277}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -165,3 +166,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorWhenTargeted: {r: 1, g: 1, b: 0, a: 1}
+--- !u!114 &1410716885757777277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9049541133973556158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff6e07f2a33b1b43a06242b83be2287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -3,13 +3,21 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Detector : MonoBehaviour
 {
-    [SerializeField] private DetectorType detectorType;
+    [SerializeField] private GameEndType gameEndType;
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            RestartGame();
+        }
+    }
+
+    private void RestartGame()
+    {
+        GameManager.instance.RestartGame(gameEndType);
     }
 
 }
 
-public enum DetectorType { Lose, Win }
+public enum GameEndType { Lose, Win }

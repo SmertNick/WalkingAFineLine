@@ -26,6 +26,7 @@ public class Projectile : MonoBehaviour, IProjectile
         projectileTransform.position += projectileTransform.forward * speed * Time.deltaTime;
     }
 
+    
     private void OnCollisionEnter(Collision other)
     {
         IDamageable[] effects = other.gameObject.GetComponents<IDamageable>();
