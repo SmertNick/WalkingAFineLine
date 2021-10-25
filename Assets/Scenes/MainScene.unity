@@ -161,7 +161,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19360
+  m_Name: pb_Mesh19384
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1036,7 +1036,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 2
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -6853,7 +6853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8847539410827754652, guid: 46339decc45bc2740bcbefb48b49ef8b, type: 3}
   bulletPoolSize: 10
-  bulletCollisionParticlesPrefab: {fileID: 8847539410827754652, guid: 46339decc45bc2740bcbefb48b49ef8b, type: 3}
+  bulletCollisionParticlesPrefab: {fileID: 5809682168485883427, guid: ab4f97281d54db84999120f4fef61c91, type: 3}
   particlesPoolSize: 10
 --- !u!4 &1928456071
 Transform:

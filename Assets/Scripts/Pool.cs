@@ -53,7 +53,7 @@ public class Pool : MonoBehaviour, IBulletProvider, IParticlesProvider
     public GameObject GetParticles()
     {
         // Search pool for first inactive object
-        foreach (GameObject obj in bullets)
+        foreach (GameObject obj in particles)
         {
             if (!obj.activeInHierarchy)
             {
@@ -62,8 +62,8 @@ public class Pool : MonoBehaviour, IBulletProvider, IParticlesProvider
         }
 
         // If all are active - add new one to the pool
-        GameObject extraParticles = Instantiate(bulletPrefab);
-        bullets.Add(extraParticles);
+        GameObject extraParticles = Instantiate(bulletCollisionParticlesPrefab);
+        particles.Add(extraParticles);
         
         return extraParticles;
     }

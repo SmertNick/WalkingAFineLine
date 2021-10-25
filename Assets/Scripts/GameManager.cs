@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public KeyBindings KeyBindings => keyBindings;
     public MouseSettings MouseSettings => mouseSettings;
     public IBulletProvider BulletProvider => objecPool;
-    public IParticlesProvider PartilcesProvider => objecPool;
+    public IParticlesProvider ParticlesProvider => objecPool;
     
     public static GameManager instance;
 

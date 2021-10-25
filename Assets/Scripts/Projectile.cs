@@ -7,25 +7,29 @@ public class Projectile : MonoBehaviour, IProjectile
     [SerializeField] private float speed = 15f;
     [SerializeField] private float damage = 1f;
     [SerializeField] private float lifeTime = 5f;
-    [SerializeField] private ParticleSystem particles;
     
+    private ParticleSystem particles;
+    private IParticlesProvider particlesProvider;
     private Transform projectileTransform;
+    private Rigidbody body;
+
+    private void Awake()
+    {
+        projectileTransform = transform;
+        body = GetComponent<Rigidbody>();
+    }
 
     private void Start()
     {
-        projectileTransform = transform;
+        particlesProvider = GameManager.instance.ParticlesProvider;
     }
 
     private void OnEnable()
     {
         StartCoroutine(Despawn());
+        body.velocity = Vector3.zero;
+        GetComponent<Rigidbody>().AddForce(projectileTransform.forward * speed, ForceMode.Impulse);
     }
-
-    private void Update()
-    {
-        projectileTransform.position += projectileTransform.forward * speed * Time.deltaTime;
-    }
-
     
     private void OnCollisionEnter(Collision other)
     {
@@ -44,7 +48,11 @@ public class Projectile : MonoBehaviour, IProjectile
 
     private void Xplode()
     {
-        //particles.Play();
+        particles = particlesProvider.GetParticles().GetComponent<ParticleSystem>();
+        if (particles == null) return;
+        particles.transform.position = projectileTransform.position;
+        particles.gameObject.SetActive(true);
+        particles.Play();
     }
 
     private IEnumerator Despawn()
