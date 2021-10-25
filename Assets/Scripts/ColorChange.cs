@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ColorChange : MonoBehaviour, ITargetable
@@ -12,12 +13,12 @@ public class ColorChange : MonoBehaviour, ITargetable
     {
         rend = GetComponent<Renderer>();
         matPropBlock = new MaterialPropertyBlock();
+        originalColor = rend.material.GetColor("_BaseColor");
     }
-    
+
     public void OnTarget()
     {
         rend.GetPropertyBlock(matPropBlock);
-        originalColor = matPropBlock.GetColor("_BaseColor");
         matPropBlock.SetColor("_BaseColor", colorWhenTargeted);
         rend.SetPropertyBlock(matPropBlock);
     }

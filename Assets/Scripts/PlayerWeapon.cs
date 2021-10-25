@@ -9,6 +9,7 @@ public class PlayerWeapon : MonoBehaviour
     private Camera cam;
     private Vector3 aimPoint;
     private const float maxDistance = 100f;
+    private GameObject previouslyTargeted;
 
     private KeyBindings keyBindings;
     private IBulletProvider bulletProvider;
@@ -61,6 +62,13 @@ public class PlayerWeapon : MonoBehaviour
         
         if (Physics.Raycast(aimRay, out RaycastHit hit, maxDistance))
         {
+            if (previouslyTargeted != hit.transform.gameObject)
+            {
+                DeTarget(previouslyTargeted);
+            }
+
+            previouslyTargeted = hit.transform.gameObject;
+            
             ITargetable[] targetables = hit.transform.GetComponents<ITargetable>();
             if (targetables != null)
             {
@@ -72,9 +80,24 @@ public class PlayerWeapon : MonoBehaviour
 
             return hit.point;
         }
+        
+        DeTarget(previouslyTargeted);
 
         // Aim at max distance point
         return aimRay.GetPoint(maxDistance);
+    }
+
+    private void DeTarget(GameObject previousTarget)
+    {
+        if (previousTarget == null) return;
+        
+        ITargetable[] targetables = previousTarget.GetComponents<ITargetable>();
+        if (targetables == null) return;
+
+        foreach (ITargetable effect in targetables)
+        {
+            effect.OnDeTarget();
+        }
     }
 
     private IEnumerator StartCoolDown(float time)
