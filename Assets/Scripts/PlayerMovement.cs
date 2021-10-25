@@ -6,12 +6,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 50f;
     [SerializeField] private float jumpForce = 20f;
     [SerializeField] private float airDragMultiplier = 0.3f;
-    [SerializeField] private KeyBindings keyBinds;
     [SerializeField] private LayerMask ground;
 
     private Transform playerTransform;
     private Rigidbody playerBody;
 
+    private KeyBindings keyBinds;
     private float baseDrag;
     private bool isGrounded;
     private Vector2 normalizedInput;
@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
         playerBody = GetComponent<Rigidbody>();
         playerTransform = gameObject.transform;
         baseDrag = playerBody.drag;
+
+        keyBinds = GameManager.instance.KeyBindings;
     }
 
     void Update()

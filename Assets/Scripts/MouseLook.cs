@@ -2,19 +2,25 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    [SerializeField] private MouseSettings mouseSettings;
+    [SerializeField] private bool lockMouse;
 
     private Transform bodyTransform, headTransform;
 
+    private MouseSettings mouseSettings;
     private Vector2 pitchYaw;
     private float pitch;
     private float yaw;
     
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        
+        if (lockMouse)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        mouseSettings = GameManager.instance.MouseSettings;
+
         bodyTransform = GetComponent<Transform>();
         headTransform = GetComponentInChildren<Camera>().transform;
         pitchYaw = Vector2.zero;
