@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 763999622157034219}
   - component: {fileID: 5056343412596551588}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: PlayerBody
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,8 +421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc167e17cda93ae4b876688afefa187f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockBackForce: 7
-  knockUpForce: 2
+  knockBackForce: 6
+  knockUpForce: 2.5
 --- !u!114 &8763201371826835366
 MonoBehaviour:
   m_ObjectHideFlags: 0

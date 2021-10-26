@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
     }
 
     private void Start()

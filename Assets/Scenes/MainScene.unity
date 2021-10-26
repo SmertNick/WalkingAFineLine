@@ -1078,7 +1078,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 40, y: 3, z: 100}
+  m_Size: {x: 300, y: 10, z: 300}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &935310439
 GameObject:
@@ -6623,6 +6623,7 @@ MonoBehaviour:
   mouseSettings: {fileID: 11400000, guid: 1682d8db737270e4c872dfd9849c62ee, type: 2}
   objecPool: {fileID: 1928456070}
   endGameText: {fileID: 647872543}
+  playerBody: {fileID: 1468808731}
 --- !u!4 &1095664893
 Transform:
   m_ObjectHideFlags: 0
@@ -6933,6 +6934,11 @@ Transform:
   m_Father: {fileID: 176295681}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1468808731 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3641756055038577377, guid: 71998e1f1fea7f04e819799dcacd6932, type: 3}
+  m_PrefabInstance: {fileID: 1896484244011172830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1475247771
 GameObject:
   m_ObjectHideFlags: 0
@@ -7346,14 +7352,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1896484244713036867, guid: 71998e1f1fea7f04e819799dcacd6932, type: 3}
-      propertyPath: knockUpForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1896484244713036867, guid: 71998e1f1fea7f04e819799dcacd6932, type: 3}
-      propertyPath: knockBackForce
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 4509512067369067173, guid: 71998e1f1fea7f04e819799dcacd6932, type: 3}
       propertyPath: m_RootOrder
       value: 4

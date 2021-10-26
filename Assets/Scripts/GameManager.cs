@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MouseSettings mouseSettings;
     [SerializeField] private Pool objecPool;
     [SerializeField] private EndGameText endGameText;
+    [SerializeField] private Transform playerBody; 
 
     public KeyBindings KeyBindings => keyBindings;
     public MouseSettings MouseSettings => mouseSettings;
     public IBulletProvider BulletProvider => objecPool;
     public IParticlesProvider ParticlesProvider => objecPool;
+    public Transform Player => playerBody;
     
     public static GameManager instance;
 
