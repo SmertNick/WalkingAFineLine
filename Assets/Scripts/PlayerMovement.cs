@@ -17,13 +17,17 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 normalizedInput;
     private Vector3 moveDirection;
     private const float groundCheckRadius = 0.1f;
-    
 
-    void Start()
+
+    private void Awake()
     {
         playerBody = GetComponent<Rigidbody>();
         playerTransform = gameObject.transform;
         baseDrag = playerBody.drag;
+    }
+
+    void Start()
+    {
 
         keyBinds = GameManager.instance.KeyBindings;
     }

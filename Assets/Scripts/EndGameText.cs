@@ -9,7 +9,7 @@ public class EndGameText : MonoBehaviour
     private Text endText;
     private string[] messages;
 
-    private void Start()
+    private void Awake()
     {
         messages = new string[2] { loseMessage, winMessage };
         endText = GetComponent<Text>();

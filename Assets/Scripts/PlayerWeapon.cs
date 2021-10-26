@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -16,14 +17,19 @@ public class PlayerWeapon : MonoBehaviour
 
     private float coolDownTime;
     private bool isCoolingDown;
-    
+
+
+    private void Awake()
+    {
+        cam = GetComponentInChildren<Camera>();
+    }
+
     void Start()
     {
         keyBindings = GameManager.instance.KeyBindings;
         bulletProvider = GameManager.instance.BulletProvider;
         coolDownTime = 1 / fireRate;
 
-        cam = GetComponentInChildren<Camera>();
         aimPoint = new Vector3(0.5f * Screen.width, 0.5f * Screen.height, 0f);
     }
 

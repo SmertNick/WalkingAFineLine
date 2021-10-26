@@ -11,6 +11,7 @@ public class MouseLook : MonoBehaviour
     private float pitch;
     private float yaw;
     
+    
     void Start()
     {
         if (lockMouse)

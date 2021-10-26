@@ -10,7 +10,7 @@ public class KnockBack : MonoBehaviour, IDamageable
     private Transform bodyTransform;
     private bool hasBody;
 
-    private void Start()
+    private void Awake()
     {
         body = GetComponent<Rigidbody>();
         if (body != null)
